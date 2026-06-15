@@ -1,0 +1,668 @@
+/* ==========================================
+   1. CORE PALETTE VARIABLES & SYSTEM RESETS
+   ========================================== */
+:root {
+  --deep-blue: #0f172a;       /* Main Sidebar / Structural Backgrounds */
+  --slate-blue: #1e293b;      /* Input focus / Secondary dark accents */
+  --mint-green: #10b981;      /* Primary Buttons / Focus states / Converted badge */
+  --mint-hover: #059669;      /* Darker mint for interactive hover states */
+  --mint-light: #d1fae5;      /* Light mint background for successes */
+  --mint-text: #065f46;       /* Clean readable text inside mint containers */
+  --bg-light: #f8fafc;        /* Main content area gray-white background */
+  --card-white: #ffffff;      /* Form cards and table containers */
+  --text-dark: #334155;       /* Primary text */
+  --text-muted: #64748b;      /* Muted text for dates/subtitles */
+  --border-color: #e2e8f0;    /* Clean divider lines */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+/* ==========================================
+   2. SCREEN 1: FULL SCREEN LANDING PAGE 
+   ========================================== */
+.full-screen-landing {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Left Split: Rich Corporate Professional Blue Pane */
+.landing-left-pane {
+  flex: 1;
+  background-color: var(--deep-blue);
+  background-image: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+}
+
+.branding-content {
+  max-width: 540px;
+}
+
+.system-badge {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: var(--mint-green);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 25px;
+}
+
+.branding-content h1 {
+  color: #ffffff;
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.branding-content p {
+  color: #94a3b8;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+/* Right Split: Clean, Bright Mint Action Portal Pane */
+.landing-right-pane {
+  flex: 1;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  position: relative;
+}
+
+.action-content {
+  max-width: 420px;
+  text-align: center;
+}
+
+.action-content h2 {
+  color: var(--deep-blue);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.action-content p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 35px;
+}
+
+/* Giant Premium Mint Interactive Control Button */
+.btn-get-started {
+  width: 100%;
+  padding: 18px 36px;
+  background-color: var(--mint-green);
+  color: var(--deep-blue);
+  border: none;
+  border-radius: 8px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+  transition: all 0.25s ease;
+  outline: none;
+}
+
+.btn-get-started:hover {
+  background-color: var(--mint-hover);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 25px rgba(5, 150, 105, 0.3);
+}
+
+.btn-get-started:active {
+  transform: translateY(0);
+}
+
+/* ==========================================
+   3. SCREENS 2 & 3: AUTHENTICATION LAYERS
+   ========================================== */
+.auth-screen {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--deep-blue) 0%, var(--slate-blue) 100%);
+}
+
+.auth-form {
+  background: var(--card-white);
+  padding: 35px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border-top: 5px solid var(--mint-green);
+}
+
+.auth-form h2 {
+  margin-bottom: 25px;
+  text-align: center;
+  color: var(--deep-blue);
+  font-size: 1.6rem;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--text-dark);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  border-color: var(--mint-green);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--mint-green);
+  color: var(--deep-blue);
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+
+.btn-submit:hover {
+  background-color: var(--mint-hover);
+  color: white;
+}
+
+.auth-footer-text {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 20px;
+}
+
+.auth-link {
+  color: var(--mint-hover);
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.error-message {
+  background-color: #fee2e2;
+  color: #991b1b;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+  text-align: center;
+  border: 1px solid #fca5a5;
+  font-weight: 500;
+}
+
+/* ==========================================
+   4. SCREEN 4: HOMEPAGE DASHBOARD SYSTEM
+   ========================================== */
+.dashboard-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar Navigation Pane Layout */
+.sidebar-pane {
+  width: 260px;
+  background: var(--deep-blue);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.sidebar-header h3 {
+  font-size: 1.2rem;
+  margin-bottom: 35px;
+  border-bottom: 1px solid var(--slate-blue);
+  padding-bottom: 12px;
+  color: var(--mint-green);
+  letter-spacing: 0.5px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.sidebar-nav a {
+  color: #94a3b8;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.sidebar-nav a.active, .sidebar-nav a:hover {
+  background: var(--slate-blue);
+  color: var(--mint-green);
+}
+
+.btn-logout {
+  background: transparent;
+  border: 1px solid #ef4444;
+  color: #ef4444;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-logout:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* Dashboard Core Content Workspace Layout */
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-light);
+  overflow: hidden;
+}
+
+.top-navbar {
+  height: 65px;
+  background: var(--card-white);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  gap: 20px;
+}
+
+.menu-toggle {
+  font-size: 1.6rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--deep-blue);
+}
+
+.content-body {
+  padding: 30px;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+/* ==========================================
+   5. WORKSPACE CONSOLE, TABLE, & DRAWER
+   ========================================== */
+.crm-workspace {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.workspace-layout {
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+}
+
+/* Analytics Summary Bar counters */
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  background: var(--card-white);
+  padding: 22px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  border-left: 4px solid var(--deep-blue);
+}
+
+.stat-card h4 {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--deep-blue);
+}
+
+.stat-card:nth-child(2) { border-left-color: var(--mint-green); }
+.stat-card:nth-child(3) { border-left-color: #3b82f6; }
+
+.search-input {
+  padding: 12px 18px;
+  font-size: 0.95rem;
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: var(--mint-green);
+}
+
+/* Leads Log Data Table Sheet */
+.table-container {
+  background: var(--card-white);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01), 0 2px 4px -1px rgba(0,0,0,0.01);
+  flex-grow: 1;
+  overflow-x: auto;
+}
+
+.crm-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.crm-table th, .crm-table td {
+  padding: 15px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.95rem;
+}
+
+.crm-table th {
+  background-color: #f8fafc;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.selected-row {
+  background-color: #f0fdf4;
+}
+
+/* DynamicColored Badge Status Selectors */
+.status-select {
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+.status-select.new { background: #dbeafe; color: #1e40af; }
+.status-select.contacted { background: #fef3c7; color: #92400e; }
+.status-select.converted { background: var(--mint-light); color: var(--mint-text); }
+
+.btn-view {
+  background: var(--bg-light);
+  color: var(--deep-blue);
+  border: 1px solid var(--border-color);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-view:hover {
+  background: var(--deep-blue);
+  color: white;
+}
+
+/* Split Pane Interactive Sidebar File Detail View (Drawer) */
+.detail-drawer {
+  width: 420px;
+  background: var(--card-white);
+  border-radius: 10px;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+  border: 1px solid var(--border-color);
+  padding: 24px;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.btn-close {
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.drawer-meta p {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.notes-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  margin: 15px 0;
+}
+
+.note-item {
+  background: var(--bg-light);
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  border-left: 3px solid var(--mint-green);
+}
+
+.note-form textarea {
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 0.9rem;
+  resize: none;
+  outline: none;
+  margin-bottom: 12px;
+}
+
+.note-form textarea:focus { border-color: var(--mint-green); }
+
+/* Responsive Media Breakdown */
+@media (max-width: 900px) {
+  .full-screen-landing { flex-direction: column; }
+  .landing-left-pane, .landing-right-pane { padding: 40px 20px; }
+  .branding-content h1 { font-size: 2.2rem; }
+  .workspace-layout { flex-direction: column; }
+  .detail-drawer { width: 100%; }
+}
+/* ==========================================
+   SIDEBAR NAVIGATION PANE LAYOUT 
+   ========================================== */
+.sidebar-pane {
+  width: 260px;
+  background: var(--deep-blue);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.sidebar-header h3 {
+  font-size: 1.2rem;
+  margin-bottom: 35px;
+  border-bottom: 1px solid var(--slate-blue);
+  padding-bottom: 12px;
+  color: var(--mint-green);
+  letter-spacing: 0.5px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+/* Structural buttons replacing old link anchors */
+.sidebar-link-btn {
+  background: none;
+  border: none;
+  text-align: left;
+  color: #94a3b8;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s;
+  display: block;
+  outline: none;
+}
+
+/* Hover and Active State Styling */
+.sidebar-link-btn.active, 
+.sidebar-link-btn:hover {
+  background: var(--slate-blue);
+  color: var(--mint-green);
+}
+
+/* Exit Control Action Button */
+.btn-logout {
+  background: transparent;
+  border: 1px solid #ef4444;
+  color: #ef4444;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+  width: 100%;
+  text-align: center;
+  outline: none;
+}
+
+.btn-logout:hover {
+  background: #ef4444;
+  color: white;
+}
+/* FIXED RECTANGULAR SIDEBAR PANEL CONFIGURATION */
+.detail-drawer.permanent-panel {
+  width: 400px;
+  min-width: 400px;
+  background: var(--card-white);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01), 0 2px 4px -1px rgba(0,0,0,0.01);
+  border: 1px solid var(--border-color);
+  padding: 24px;
+  align-self: stretch; /* Forces panel height to stretch down perfectly with the table container */
+}
+
+.drawer-divider {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 18px 0;
+}
+
+/* Inline Fixed Tag Badges Inside File Header */
+.status-badge-inline {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-left: 8px;
+  display: inline-block;
+}
+.status-badge-inline.new { background: #dbeafe; color: #1e40af; }
+.status-badge-inline.contacted { background: #fef3c7; color: #92400e; }
+.status-badge-inline.converted { background: var(--mint-light); color: var(--mint-text); }
+
+/* Placeholder display formatting when data is unset */
+.drawer-placeholder {
+  text-align: center;
+  padding: 40px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.drawer-placeholder h3 {
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.drawer-placeholder p {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Ensure the outer table container handles overflow cleanly next to fixed card */
+.table-container {
+  background: var(--card-white);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01), 0 2px 4px -1px rgba(0,0,0,0.01);
+  flex: 1; /* Automatically stretches and contracts width smoothly */
+  overflow-x: auto;
+}
